@@ -18,8 +18,10 @@ class WebScraperService
   end
 
   def call
-    response = HTTParty.get(url)
-    doc = Nokogiri::HTML(response.body)
+    response = Rails.cache.fetch("page:#{url}", expires_in: 12.hours) do
+      HTTParty.get(url).body
+    end
+    doc = Nokogiri::HTML(response)
 
     result = {}
 
