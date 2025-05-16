@@ -8,7 +8,7 @@ A simple Rails-based web scraper that extracts data from a URL using CSS selecto
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/web-scraper-api.git
+git clone https://github.com/Pochy9024/dotidot-hw.git
 cd web-scraper-api
 ```
 
