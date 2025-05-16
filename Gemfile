@@ -39,7 +39,11 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem "byebug", platforms: %i[ mri mingw jruby ]
+  gem "byebug"
+
+  gem 'rspec-rails'
+  gem 'webmock'
+  gem 'factory_bot_rails'
 end
 
 gem 'httparty'

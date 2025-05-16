@@ -1,24 +1,69 @@
-# README
+# Web Scraper API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Rails-based web scraper that extracts data from a URL using CSS selectors and meta tag names.
 
-Things you may want to cover:
 
-* Ruby version
+## Setup Instructions
 
-* System dependencies
+### 1. Clone the repo
 
-* Configuration
+```bash
+git clone https://github.com/yourusername/web-scraper-api.git
+cd web-scraper-api
+```
 
-* Database creation
+### 2. Install dependencies
+```bash
+bundle install
+```
 
-* Database initialization
+### 3. Start the Rails server
+```bash
+rails s
+```
+Server will run at: `http://localhost:3000`
 
-* How to run the test suite
+## API Usage
+### Endpoint
+```bash
+GET /data
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Request Parameters (JSON)
+Example 1: Using CSS selectors
+```json
+{
+  "url": "https://example.com",
+  "fields": {
+    "price": ".price-box__price",
+    "rating_value": ".ratingValue"
+  }
+}
+```
 
-* Deployment instructions
+Example 2: Using meta tag names
+```json
+{
+  "url": "https://example.com",
+  "fields": {
+    "meta": ["keywords", "twitter:image"]
+  }
+}
+```
 
-* ...
+### Example Response
+```json
+{
+  "price": "18290,-",
+  "rating_value": "4,9",
+  "meta": {
+    "keywords": "example, test, data",
+    "twitter:image": "https://cdn.example.com/image.jpg"
+  }
+}
+```
+
+## Running Tests
+```bash
+bundle exec rspec
+```
